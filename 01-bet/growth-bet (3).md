@@ -40,6 +40,6 @@ How I’d know it works: the invite rate (the share of activated users who invit
 
 <img width="1520" height="800" alt="26aca494-e15a-4137-8da5-20c32fce4d3d" src="https://github.com/user-attachments/assets/38444fff-8d13-4b8a-bb33-8258781f8cda" />
 
-<img width="757" height="398" alt="image" src="https://github.com/user-attachments/assets/e1770870-0eb8-4d79-b2c9-9c1c63490be7" />
+
 
 _____
