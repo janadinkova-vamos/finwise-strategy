@@ -35,5 +35,14 @@ _____
 ## Lagging indicators
 
 - **Trial-to-paid conversion rate (currently about 2%), confirmed by 90-day paid retention.:** If users who import early and answer a real decision convert and stay at higher rates, at scale, the strategy worked. Both are earned through the leading indicators, not moved directly.
+<img width="800" height="401" alt="image" src="https://github.com/user-attachments/assets/1714235d-1d3e-4af7-9b95-5216d801093d" />
+
+<img width="795" height="245" alt="image" src="https://github.com/user-attachments/assets/6c2f58d8-5af4-4277-ae23-6f32c611c682" />
+
+<img width="792" height="254" alt="image" src="https://github.com/user-attachments/assets/1ba31ba7-0d82-42f2-983c-49b06c0ade39" />
+
+<img width="800" height="215" alt="image" src="https://github.com/user-attachments/assets/a1ae00e5-1a74-4cd5-a0ab-f73ca157b2c1" />
+
+
 
 _____
