@@ -36,6 +36,6 @@ _____
 
 ## Why this activates
 
-This works because it answers a real decision. A bank balance or a chart shows information that most banks already offer to SMB - this tells the owner what to do - take the contract or not, take the contract but ask for credit line or hire an aditional person. It also repeats. There is always a new contract for SMBs, always a new decision to make, which gives the user a reason to come back to the tool and keep paying. Because it is useful. It is naturally collaborative - SMB owners always share their decisions with someone - accountant or a business associate, which feeds the collaboration loop.
+This works because it answers a real decision. A bank balance or a chart shows information that most banks already offer to SMBs. This tells the owner what to do: take the contract or not, take it but ask for a credit line, or hire an additional person. It also repeats. There is always a new contract for SMBs, always a new decision to make, which gives the user a reason to come back to the tool and keep paying, because it is useful. It is also naturally collaborative: SMB owners always share their decisions with someone, such as an accountant or a business associate, which feeds the collaboration loop.
 
 _____
