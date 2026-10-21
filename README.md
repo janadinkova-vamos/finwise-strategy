@@ -4,6 +4,8 @@
 
 Jana Alexandrova · Product Experimentation · 21 October 2026
 
+**Presentation:** [pitch.html](pitch.html) · live at [janadinkova-vamos.github.io/finwise-strategy/pitch.html](https://janadinkova-vamos.github.io/finwise-strategy/pitch.html) (once GitHub Pages is enabled) · **Prototype:** [deal-horizon-predictor.lovable.app](https://deal-horizon-predictor.lovable.app)
+
 This repo is my final project for the **Product Experimentation Certification** — a growth strategy for FinWise. One folder per module; this README is **The Story** that ties them together, and the source for the pitch you generate with the **Final Project Deliverables Prompt Generator**.
 
 ---

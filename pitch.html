@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decisions, Not Features · FinWise growth strategy</title>
+<meta name="description" content="A product-led growth and experimentation strategy for FinWise Co. by Jana Alexandrova, Product Experimentation Certification, October 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F6F5;
+  --sheet:#FFFFFF;
+  --ink:#14213D;
+  --ink-2:#3C4A63;
+  --muted:#5E6B78;
+  --rule:#D3DCD9;
+  --grid:#E3EAE7;
+  --green:#1F6F5B;
+  --green-soft:#DCEDE7;
+  --gap:#B83A2E;
+  --gap-soft:#F6E1DE;
+  --amber:#9A6B12;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Public Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+a{color:var(--green);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
+
+/* slides */
+.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:72px 7vw 88px;position:relative;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 32px;background-position:0 -1px}
+.slide:nth-child(even){background-color:#EEF3F1}
+.inner{max-width:1120px;width:100%;margin:0 auto}
+.section{font-family:var(--body);font-size:14px;font-weight:600;color:var(--green);margin:0 0 14px;display:flex;gap:10px;align-items:center}
+.section::before{content:"";width:22px;height:2px;background:var(--green)}
+h1,h2,h3{font-family:var(--display);color:var(--ink);margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(28px,3.6vw,46px);line-height:1.08;font-weight:800;max-width:30ch;margin-bottom:28px}
+h3{font-size:19px;font-weight:700;line-height:1.25;margin-bottom:8px}
+p{margin:0 0 12px;max-width:68ch}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--ink-2);max-width:62ch;margin-bottom:28px}
+.small{font-size:14px;color:var(--muted)}
+.foot{position:absolute;left:50%;transform:translateX(-50%);width:min(1120px,86vw);bottom:26px;display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.foot b{color:var(--ink);font-weight:600}
+
+/* layout helpers */
+.cols{display:grid;gap:28px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){html{scroll-snap-type:y proximity}.c2,.c3,.c4{grid-template-columns:1fr}.slide{padding:64px 22px 92px}.foot{width:calc(100% - 44px);gap:12px}}
+.panel{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:22px 24px}
+.panel.keyline{border-left:4px solid var(--green)}
+.panel.warn{border-left:4px solid var(--gap)}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:9px 0;border-top:1px solid var(--rule)}
+ul.clean li:first-child{border-top:0}
+ul.dots{margin:0;padding-left:20px}
+ul.dots li{margin:6px 0}
+.num{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,64px);line-height:1;color:var(--ink)}
+.num.gap{color:var(--gap)}
+.tag{display:inline-block;font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--green-soft);color:var(--green)}
+.tag.red{background:var(--gap-soft);color:var(--gap)}
+.tag.amber{background:#F3E7CC;color:var(--amber)}
+
+/* title slide */
+.title h1{font-size:clamp(44px,7.4vw,104px);line-height:.95;font-weight:800;letter-spacing:-.03em;max-width:12ch}
+.title .thesis{font-size:clamp(18px,1.8vw,23px);color:var(--ink-2);max-width:56ch;margin:26px 0 30px}
+.byline{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;color:var(--ink-2)}
+.byline a{font-weight:600}
+.hero-chart{margin-top:40px}
+.hero-chart svg{width:100%;height:auto;display:block}
+.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.2s ease-out .3s forwards}
+.fadein{opacity:0;animation:fade .6s ease-out 2.1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.fadein{animation:none;opacity:1}}
+
+/* dumbbell chart */
+.db{display:grid;grid-template-columns:200px 1fr 120px;gap:10px 18px;align-items:center}
+.db .lab{font-weight:600}
+.db .track{position:relative;height:28px}
+.db .track::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:var(--rule)}
+.db .bar{position:absolute;top:11px;height:6px;border-radius:3px;background:var(--green)}
+.db .bar.flat{background:var(--gap)}
+.db .pt{position:absolute;top:7px;width:14px;height:14px;border-radius:50%;background:var(--sheet);border:3px solid var(--green);transform:translateX(-50%)}
+.db .pt.end{background:var(--green)}
+.db .pt.r{border-color:var(--gap)}.db .pt.r.end{background:var(--gap)}
+.db .val{font-size:15px;color:var(--ink-2);text-align:right}
+@media (max-width:900px){.db{grid-template-columns:1fr}.db .val{text-align:left}}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}
+.tw table{min-width:640px}
+table{width:100%;border-collapse:collapse;background:var(--sheet);border:1px solid var(--rule);border-radius:10px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-top:1px solid var(--rule);vertical-align:top}
+thead th{border-top:0;background:#E8EFEC;font-weight:600;color:var(--ink);font-size:14px}
+td b{font-weight:600}
+
+/* metric tree */
+.tree{display:grid;grid-template-columns:1fr 2fr 1fr;gap:18px;align-items:stretch}
+@media (max-width:900px){.tree{grid-template-columns:1fr}}
+.tree .head{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:4px}
+
+/* loop */
+.loop svg{width:100%;height:auto;max-width:620px;display:block;margin:0 auto}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--ink);margin-top:6px}
+.road > div{padding:16px 16px 0 0;border-right:1px dashed var(--rule)}
+.road > div:last-child{border-right:0}
+.road .q{font-family:var(--display);font-weight:800;font-size:20px}
+.road .m{font-size:13px;color:var(--muted);margin-bottom:10px}
+.road ul{margin:0;padding-left:18px;font-size:15px}
+.road li{margin:6px 0}
+@media (max-width:900px){.road{grid-template-columns:1fr}.road > div{border-right:0;border-bottom:1px dashed var(--rule);padding-bottom:12px}}
+
+/* nav */
+.nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:10}
+.nav a{width:10px;height:10px;border-radius:50%;border:2px solid var(--ink-2);display:block;opacity:.45}
+.nav a.on{background:var(--ink);border-color:var(--ink);opacity:1}
+@media (max-width:900px){.nav{display:none}}
+
+@media print{
+  html{scroll-snap-type:none}
+  .slide{min-height:auto;height:100vh;page-break-after:always;break-after:page;background-image:none}
+  .nav{display:none}
+  .draw{stroke-dashoffset:0;animation:none}.fadein{opacity:1;animation:none}
+  @page{size:landscape;margin:0}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Slides"></nav>
+<main>
+
+<!-- 1 TITLE -->
+<section class="slide title" id="s1" aria-label="Title">
+ <div class="inner">
+  <h1>Decisions, not features</h1>
+  <p class="thesis">FinWise's growth leaks because users never experience value tied to a real decision. Onboarding that delivers a decision-linked forecast, shared with the accountant, lifts conversion and retention and turns each accountant into a multiplier who brings in new businesses without ad spend.</p>
+  <div class="byline">
+   <span>Jana Alexandrova</span>
+   <span>Product Experimentation Certification, October 2026</span>
+   <a href="https://deal-horizon-predictor.lovable.app" target="_blank" rel="noopener">Open the prototype</a>
+   <a href="https://github.com/janadinkova-vamos/finwise-strategy" target="_blank" rel="noopener">Read the full strategy on GitHub</a>
+  </div>
+  <figure class="hero-chart" aria-label="Example forecast: a contract creates a temporary €4,000 cash gap for 60 days before the client pays">
+   <svg viewBox="0 0 1100 230" role="img">
+    <line x1="40" y1="120" x2="1080" y2="120" stroke="#14213D" stroke-width="1.5"/>
+    <text x="1080" y="112" text-anchor="end" font-size="14" fill="#5E6B78" font-family="Public Sans, system-ui, -apple-system, Segoe UI, Arial, sans-serif">€0</text>
+    <path d="M40 60 L120 60 L130 150 L760 150 L770 20 L1080 20" fill="none" stroke="#1F6F5B" stroke-width="4" class="draw"/>
+    <rect x="130" y="120" width="640" height="30" fill="#B83A2E" fill-opacity=".14" class="fadein"/>
+    <g class="fadein" font-family="Public Sans, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15">
+     <text x="40" y="48" fill="#14213D">Day 0: €8,000 in the bank</text>
+     <text x="150" y="178" fill="#B83A2E" font-weight="600">Delivery costs paid: €4,000 short for 60 days</text>
+     <text x="790" y="48" fill="#14213D">Day 60: client pays, €16,000</text>
+     <text x="150" y="205" fill="#5E6B78">The question every owner asks before signing: does it pay off, and can I afford it?</text>
+    </g>
+   </svg>
+  </figure>
+ </div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide" id="s2" aria-label="The problem">
+ <div class="inner">
+  <div class="section">The problem</div>
+  <h2>FinWise pays for growth that leaks straight back out</h2>
+  <p class="lead">FinWise has product-market fit and $10M ARR, and is betting the next year on a product-led reverse trial. The numbers show an engine that needs more money every quarter just to stand still.</p>
+  <div class="cols c3">
+   <div class="panel"><div class="num gap">2%</div><h3>of trials convert to paid</h3><p class="small">Between 1.87% and 2.08% every month for 13 months, even with full premium access.</p></div>
+   <div class="panel"><div class="num gap">40%</div><h3>of paying customers stay a year</h3><p class="small">Three in five churn within twelve months, so revenue has to be refilled constantly.</p></div>
+   <div class="panel"><div class="num">Ads</div><h3>carry most of the acquisition budget</h3><p class="small">Paid sign-ups flow into a trial that doesn't activate them, so they leak out too.</p></div>
+  </div>
+  <p class="lead" style="margin-top:28px;margin-bottom:0">The question for the next 12 months: where does the experience fail to create value, and how do we turn a leaky engine into one that compounds without leaning on paid acquisition?</p>
+ </div>
+ <div class="foot"><span><b>Brief</b> FinWise Co. case</span><span>2</span></div>
+</section>
+
+<!-- 3 DIAGNOSIS -->
+<section class="slide" id="s3" aria-label="Diagnosis">
+ <div class="inner">
+  <div class="section">Diagnosis · Module 4 signals</div>
+  <h2>Users got busier. Conversion didn't move.</h2>
+  <p class="lead">Thirteen months of data show a Ceiling: whatever users do in the trial, the same 2% pay. Activity was never the problem; the missing piece is an outcome worth paying for.</p>
+  <div class="db" role="table" aria-label="Start and end of each metric over 13 months">
+   <div class="lab">Modeling usage</div><div class="track"><span class="bar" style="left:11%;width:47%"></span><span class="pt" style="left:11%"></span><span class="pt end" style="left:58%"></span></div><div class="val">11% → 58%</div>
+   <div class="lab">Import usage</div><div class="track"><span class="bar" style="left:31%;width:14%"></span><span class="pt" style="left:31%"></span><span class="pt end" style="left:45%"></span></div><div class="val">31% → 45%</div>
+   <div class="lab">Sessions per user</div><div class="track"><span class="bar" style="left:10%;width:20%"></span><span class="pt" style="left:10%"></span><span class="pt end" style="left:30%"></span></div><div class="val">3 → 9</div>
+   <div class="lab">Trial-to-paid</div><div class="track"><span class="bar flat" style="left:18.7%;width:2.1%"></span><span class="pt r" style="left:18.7%"></span><span class="pt r end" style="left:20.8%"></span></div><div class="val">1.87% – 2.08%</div>
+  </div>
+  <p class="small" style="margin-top:10px">Each row uses its own scale; the point is direction. Session length fell from 11–14 to 5–9 minutes after July 2024: users check in, run a model and leave without an answer.</p>
+  <div class="cols c2" style="margin-top:20px">
+   <div class="panel keyline"><h3>What I read</h3><p class="small" style="margin:0">A Ceiling is a product limit, not a funnel problem. Pushing users into existing features won't break it; a new value moment will. Sessions, import and modeling are vanity metrics for FinWise.</p></div>
+   <div class="panel warn"><h3>What the data can't tell me</h3><p class="small" style="margin:0">Whether price contributes at the downgrade, and whether a decision-linked forecast predicts conversion. Neither is in the dataset, so both are tested, not assumed.</p></div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Pattern</b> Ceiling · correlation test: hypothesis revised</span><span>3</span></div>
+</section>
+
+<!-- 4 BET -->
+<section class="slide" id="s4" aria-label="The bet">
+ <div class="inner">
+  <div class="section">The bet · Module 1</div>
+  <h2>Value is a decision answered, not a feature used</h2>
+  <div class="cols c2">
+   <div>
+    <p class="lead">Trial users have everything but never reach an outcome that matters to their business. The value moment is a forecast tied to a real decision: a new contract, a hire, a tax payment. Those decisions are usually reviewed with an accountant, so the value moment is naturally collaborative.</p>
+    <p class="small">Qualitative signal: an interview with a senior accountant serving SMBs pointed to forward-looking forecasting, not bookkeeping, as the most valuable capability. Treated as a hypothesis (n=1) and backed by a four-tool review benchmark later in this deck.</p>
+   </div>
+   <div class="panel">
+    <h3>What I'm deliberately not doing</h3>
+    <ul class="clean small">
+     <li><b>No more acquisition spend.</b> The problem is value, not traffic; I accept flat trial volume short term.</li>
+     <li><b>No price or discount changes first.</b> They would bury the activation effect and attract low-fit users.</li>
+     <li><b>No referral rewards or content loops yet.</b> Referral needs satisfied customers FinWise doesn't have yet.</li>
+     <li><b>No experiment on conversion directly.</b> At ~500 trials a month, a 2% → 2.5% lift would take years to detect.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Growth hypothesis</b> Activation → Revenue drop-off, same root cause in Retention</span><span>4</span></div>
+</section>
+
+<!-- 5 METRICS -->
+<section class="slide" id="s5" aria-label="North Star and metrics">
+ <div class="inner">
+  <div class="section">How we measure · Aim, move, prove</div>
+  <h2>One North Star, two levers to move, revenue to prove it</h2>
+  <div class="tree">
+   <div class="panel keyline"><div class="small">Aim</div><div class="head">Monthly decision-active accounts</div><p class="small" style="margin:0">Accounts where, this month, the owner saved or updated a decision with their own numbers, or an accountant reviewed one. Can't be inflated by clicks.</p></div>
+   <div class="panel"><div class="small">Move: what experiments target</div>
+    <ul class="clean">
+     <li><b>Decision-forecast rate within 7 days.</b> <span class="small">Share of new trial users who save a forecast for a real decision with their own numbers.</span></li>
+     <li><b>Time to first value.</b> <span class="small">Sign-up to that first saved decision; non-completers reported separately.</span></li>
+     <li><b>Collaborative-account rate.</b> <span class="small">Owner plus at least one active accountant or partner.</span></li>
+    </ul>
+   </div>
+   <div class="panel"><div class="small">Prove: earned, not moved</div>
+    <ul class="clean small">
+     <li>Trial-to-paid conversion</li>
+     <li>90-day paid retention</li>
+     <li>Retention by plan at 6 and 12 months; annual renewal rate, never blended</li>
+     <li>MRR</li>
+    </ul>
+   </div>
+  </div>
+  <p class="small" style="margin-top:18px">Acquisition is judged by cost per activated account by channel, not cost per sign-up. Import is kept as a diagnostic only: it is setup, not value.</p>
+ </div>
+ <div class="foot"><span><b>Module 4</b> North Star, leading and lagging indicators</span><span>5</span></div>
+</section>
+
+<!-- 6 AHA + PROTOTYPE -->
+<section class="slide" id="s6" aria-label="Activation and prototype">
+ <div class="inner">
+  <div class="section">Activation · Module 2</div>
+  <h2>Four screens from sign-up to a decision answered</h2>
+  <div class="cols c4">
+   <div class="panel"><span class="tag">Screen 1</span><h3 style="margin-top:10px">Choose the decision</h3><p class="small" style="margin:0">One question replaces the profile quiz and personalises the rest.</p></div>
+   <div class="panel"><span class="tag">Screen 2</span><h3 style="margin-top:10px">Add six numbers</h3><p class="small" style="margin:0">Pre-filled sample data, clearly labelled. No bank connection or import.</p></div>
+   <div class="panel"><span class="tag">Screen 3</span><h3 style="margin-top:10px">See the answer</h3><p class="small" style="margin:0">"Profitable, but €4,000 short for 60 days." A 30% upfront payment closes the gap.</p></div>
+   <div class="panel"><span class="tag">Screen 4</span><h3 style="margin-top:10px">Save, then share</h3><p class="small" style="margin:0">Optional: invite the accountant to review. Never required for activation.</p></div>
+  </div>
+  <div class="cols c2" style="margin-top:24px">
+   <div><p class="lead" style="margin-bottom:10px">Activation is counted only when a forecast is saved after the user edits their own numbers. Sample-data saves are tracked but never count.</p>
+   <p><a href="https://deal-horizon-predictor.lovable.app" target="_blank" rel="noopener">Open the working prototype</a> <span class="small">(owner path, "example first" path and accountant path, with live event tracking)</span></p></div>
+   <div class="panel"><h3>Built for intent, tested in sequence</h3><p class="small" style="margin:0">Low-intent users can see an example before entering data; invited accountants land straight on the shared forecast. Only the core four screens enter the first A/B test; the other paths are tested separately so results don't collide.</p></div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Aha</b> "Now I know whether I can take this contract"</span><span>6</span></div>
+</section>
+
+<!-- 7 LOOP -->
+<section class="slide" id="s7" aria-label="Collaboration growth loop">
+ <div class="inner">
+  <div class="section">Growth loop · Collaboration</div>
+  <h2>The accountant is the multiplier that replaces ad spend</h2>
+  <div class="cols c2" style="align-items:center">
+   <figure class="loop" aria-label="Loop: owner invites accountant, accountant sees value, accountant invites other clients, those businesses reach a first decision and invite more collaborators">
+    <svg viewBox="0 0 640 470" role="img" font-family="Public Sans, system-ui, -apple-system, Segoe UI, Arial, sans-serif">
+     <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1F6F5B"/></marker></defs>
+     <circle cx="320" cy="235" r="150" fill="none" stroke="#D3DCD9" stroke-width="2" stroke-dasharray="5 6"/>
+     <path d="M400 108 A150 150 0 0 1 462 176" fill="none" stroke="#1F6F5B" stroke-width="3.5" marker-end="url(#ar)"/>
+     <path d="M462 296 A150 150 0 0 1 400 362" fill="none" stroke="#1F6F5B" stroke-width="3.5" marker-end="url(#ar)"/>
+     <path d="M240 362 A150 150 0 0 1 178 296" fill="none" stroke="#1F6F5B" stroke-width="3.5" marker-end="url(#ar)"/>
+     <path d="M178 176 A150 150 0 0 1 240 108" fill="none" stroke="#1F6F5B" stroke-width="3.5" marker-end="url(#ar)"/>
+     <rect x="190" y="40" width="260" height="66" rx="10" fill="#fff" stroke="#14213D" stroke-width="1.5"/>
+     <text x="320" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#14213D">Owner faces a decision</text>
+     <text x="320" y="92" text-anchor="middle" font-size="16" fill="#5E6B78">invites the accountant</text>
+     <rect x="400" y="202" width="236" height="66" rx="10" fill="#fff" stroke="#14213D" stroke-width="1.5"/>
+     <text x="518" y="230" text-anchor="middle" font-size="20" font-weight="700" fill="#14213D">Accountant sees value</text>
+     <text x="518" y="254" text-anchor="middle" font-size="16" fill="#5E6B78">context, no chasing</text>
+     <rect x="190" y="364" width="260" height="66" rx="10" fill="#fff" stroke="#14213D" stroke-width="1.5"/>
+     <text x="320" y="392" text-anchor="middle" font-size="20" font-weight="700" fill="#14213D">Invites other clients</text>
+     <text x="320" y="416" text-anchor="middle" font-size="16" fill="#5E6B78">because it eases their work</text>
+     <rect x="4" y="202" width="236" height="66" rx="10" fill="#fff" stroke="#1F6F5B" stroke-width="2.5"/>
+     <text x="122" y="230" text-anchor="middle" font-size="20" font-weight="700" fill="#1F6F5B">New businesses</text>
+     <text x="122" y="254" text-anchor="middle" font-size="16" fill="#5E6B78">reach a first decision</text>
+     <text x="320" y="241" text-anchor="middle" font-size="16" font-weight="600" fill="#1F6F5B">repeats</text>
+    </svg>
+   </figure>
+   <div>
+    <p class="lead">One accountant bringing ten clients is one round of expansion. It becomes a loop only when those businesses invite collaborators of their own, including other accountants.</p>
+    <div class="panel keyline" style="margin-bottom:14px"><h3>The insight to test</h3><p class="small" style="margin:0">Accountants spread FinWise because it improves their own work and client relationships. No referral rewards, so the test shows real motivation.</p></div>
+    <div class="panel"><h3>How we'll know it works</h3><ul class="dots small"><li><b>Reach:</b> % of invited accountants who bring in another business.</li><li><b>Value:</b> % of those businesses that save their first decision. Invitations alone don't count.</li></ul></div>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Hard side</b> accountants: supply the review owners value, each serves many clients</span><span>7</span></div>
+</section>
+
+<!-- 8 RETENTION -->
+<section class="slide" id="s8" aria-label="Retention">
+ <div class="inner">
+  <div class="section">Retention · Module 3</div>
+  <h2>The fiscal calendar gives FinWise a reason to bring users back</h2>
+  <p class="lead">A retained customer pays and makes a decision with FinWise, or shares one with their accountant. FinWise's natural rhythm is monthly, not daily, so DAU/MAU is the wrong metric.</p>
+  <div class="cols c2">
+   <div>
+    <div class="tw"><table>
+     <thead><tr><th>Rhythm</th><th>Decision</th><th>How FinWise brings users back</th></tr></thead>
+     <tbody>
+      <tr><td><b>Monthly</b></td><td>Cash planning, payroll</td><td>Progress bar: the next decision to make "Ready"</td></tr>
+      <tr><td><b>Quarterly</b></td><td>VAT and tax payments</td><td>Forecast triggered 2–3 weeks before each deadline</td></tr>
+      <tr><td><b>Occasional</b></td><td>New contract, a hire</td><td>Saved forecasts flagged when something real changes</td></tr>
+     </tbody>
+    </table></div>
+    <p class="small" style="margin-top:10px">Spain, 2026: quarterly VAT (modelo 303) and prepayments are due 20 April, 20 July, 20 October and 30 January. Every SMB faces them at the same time.</p>
+   </div>
+   <div>
+    <div class="panel keyline" style="margin-bottom:14px"><h3>"Plan before the rush"</h3><p class="small" style="margin:0"><i>"Review your estimated VAT payment and cash position, then share it with your accountant."</i> Sent early, because accountants are at their busiest in the final days.</p></div>
+    <div class="panel"><h3>Switching cost that builds over time</h3><p class="small" style="margin:0">Each saved decision stores the business's costs, payment patterns and the accountant's review. Leaving means losing a shared history, an organisational cost, not a personal one.</p></div>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Floor before ceiling</b> fix customer retention first; net dollar retention later</span><span>8</span></div>
+</section>
+
+<!-- 9 MARKET EVIDENCE -->
+<section class="slide" id="s9" aria-label="Market evidence">
+ <div class="inner">
+  <div class="section">Market evidence · qualitative triangulation</div>
+  <h2>Competitor reviews tell the same story: ease attracts, value keeps</h2>
+  <p class="lead">I reviewed customer reviews of four SMB finance tools on G2 and Capterra: Wave, Quipu and Holded (Spain), and Xero (G2 theme summary across 1,845 reviews, plus its 1–3 star reviews).</p>
+  <div class="cols c2">
+   <ul class="clean">
+    <li><b>Ease and price attract, but don't retain.</b> <span class="small">Even unhappy Xero reviewers praise ease of use; they leave over limits, support and reliability.</span></li>
+    <li><b>Forward-looking decisions are underserved.</b> <span class="small">Wave has no forecasting, Holded's cash-flow analysis is criticised, Quipu's projections are praised.</span></li>
+    <li><b>In Spain, the gestor is part of the product.</b> <span class="small">Quipu users value advisor access; Holded users describe costly owner–gestor errors.</span></li>
+    <li><b>Trust failures cause the angriest churn.</b> <span class="small">Frozen payouts, blocked access, features taken back from free plans.</span></li>
+   </ul>
+   <div class="panel warn">
+    <h3>What this does and doesn't show</h3>
+    <p class="small">Directional evidence from other products' customers: small, self-selected samples, partly incentivised reviews, mostly paying users rather than trial non-converters.</p>
+    <p class="small" style="margin:0">It supports the diagnosis and sets guardrails. It doesn't prove the Aha or the accountant loop. Only FinWise's own experiments can.</p>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Sources</b> G2 and Capterra review pages, October 2026</span><span>9</span></div>
+</section>
+
+<!-- 10 EXPERIMENT PORTFOLIO -->
+<section class="slide" id="s10" aria-label="Experiment portfolio">
+ <div class="inner">
+  <div class="section">Validation · Module 5</div>
+  <h2>Four bets, each with the method that gives the cleanest signal</h2>
+  <div class="tw"><table>
+   <thead><tr><th>Bet</th><th>Method</th><th>Randomised by</th><th>Primary metric</th><th>Why this method</th></tr></thead>
+   <tbody>
+    <tr><td><b>Decision-led onboarding</b></td><td>A/B test, 50/50</td><td>New trial user</td><td>Decision-forecast rate within 7 days</td><td>Short-window effect; users onboard alone; we need a causal read</td></tr>
+    <tr><td><b>Accountant loop</b></td><td>Holdout</td><td>Accountant</td><td>% of accountants who bring a business that reaches a first decision</td><td>Effects take months; accountant-level avoids spill-over into control</td></tr>
+    <tr><td><b>Fiscal-calendar triggers</b></td><td>Holdout, ~20% of paying base</td><td>Paying account</td><td>Monthly decision-active rate</td><td>Retention takes months; ~10 new payers a month, so the whole base is used</td></tr>
+    <tr><td><b>Paywall placement</b></td><td>Signup-date cohorts</td><td>Cohort</td><td>Upgrades at the boundary; net revenue over 2–3 cycles</td><td>Existing customers must never see a different offer</td></tr>
+   </tbody>
+  </table></div>
+  <p class="small" style="margin-top:14px">Not used: multi-armed bandit (we need cause, not live optimisation), switchback (no shared environment), geo-testing (one market). All tests run on separate populations or surfaces behind feature flags, so results can be attributed.</p>
+ </div>
+ <div class="foot"><span><b>Pitfalls planned for</b> run time, Spanish tax-deadline seasonality, imbalanced exposure, colliding tests</span><span>10</span></div>
+</section>
+
+<!-- 11 EXPERIMENT BRIEF -->
+<section class="slide" id="s11" aria-label="First experiment brief">
+ <div class="inner">
+  <div class="section">The first experiment</div>
+  <h2>Ship only if activation rises 10 points without people dropping off</h2>
+  <div class="cols c2">
+   <div>
+    <div class="panel keyline" style="margin-bottom:14px"><h3>Hypothesis</h3><p class="small" style="margin:0">If we replace generic onboarding with a decision-led flow for new trial users, the decision-forecast rate within 7 days rises by at least 10 points, because value comes from a decision answered, not feature activity.</p></div>
+    <div class="tw"><table>
+     <tbody>
+      <tr><td><b>Detectable (MDE)</b></td><td>~8 points at a 25% baseline · ~500 users per group · 80% power, p &lt; 0.05</td></tr>
+      <tr><td><b>Worth shipping</b></td><td>+10 points, significant, reported with a 95% confidence interval</td></tr>
+      <tr><td><b>Guardrail</b></td><td>Day-1 drop-off no more than +5 points vs control; checked weekly</td></tr>
+      <tr><td><b>Read date</b></td><td>8 weeks of enrolment + 7 days; primary metric read once</td></tr>
+      <tr><td><b>Proves value</b></td><td>Trial-to-paid and 90-day retention, read on their own dates</td></tr>
+     </tbody>
+    </table></div>
+   </div>
+   <div>
+    <h3>Decision rules, set before launch</h3>
+    <ul class="clean small">
+     <li><span class="tag">Clear win</span> ≥ +10, significant, guardrails fine: staged rollout</li>
+     <li><span class="tag amber">Modest win</span> significant but below +10: iterate on the inputs and retest</li>
+     <li><span class="tag amber">Inconclusive</span> interval crosses zero: not proof it fails; gather more evidence</li>
+     <li><span class="tag red">Mixed signal</span> activation up, drop-off up &gt; 5: investigate screen by screen</li>
+     <li><span class="tag red">False peak</span> strong early, fading by weeks 7–8: don't ship on novelty</li>
+    </ul>
+    <p class="small" style="margin-top:12px">Known limitation: the new flow makes the shared outcome easier to reach than importing data, so part of a lift could be a simpler task. That's why conversion and retention, not activation alone, confirm value.</p>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Conversion directly?</b> 2% → 2.5% would need ~13,800 users per group: over four years of traffic</span><span>11</span></div>
+</section>
+
+<!-- 12 PRICING -->
+<section class="slide" id="s12" aria-label="Pricing">
+ <div class="inner">
+  <div class="section">Monetization · Module 6</div>
+  <h2>Don't fix a value problem with price. Move the paywall to the decision.</h2>
+  <p class="lead">Stage 1, Value Creation, moving into Stage 2. Subscription with the reverse trial kept; monthly or annual (annual discounted). One structural bet: what the free tier keeps when the trial ends.</p>
+  <div class="cols c3">
+   <div class="panel"><span class="tag">Free, after the trial</span><h3 style="margin-top:10px">Keep what you've seen</h3><p class="small" style="margin:0">Saved decision forecasts stay visible, read-only. The quarterly VAT estimate stays free and brings users back every deadline.</p></div>
+   <div class="panel keyline"><span class="tag">Paid</span><h3 style="margin-top:10px">Act on the decision</h3><p class="small" style="margin:0">Create, update and compare forecasts; share and review with the accountant. Users hit the paywall when they need to act.</p></div>
+   <div class="panel"><span class="tag amber">Later</span><h3 style="margin-top:10px">Accountant plan</h3><p class="small" style="margin:0">Multiple clients in one plan: the route to net dollar retention above 100%, once the floor holds.</p></div>
+  </div>
+  <div class="cols c2" style="margin-top:20px">
+   <div class="panel"><h3>Model signal</h3><p class="small" style="margin:0">Upgrades cluster when users try to update or share a forecast, often near a tax deadline; cohorts keep paying through billing cycles 2–3; paid conversion doesn't fall.</p></div>
+   <div class="panel warn"><h3>Not tested yet, on purpose</h3><p class="small" style="margin:0">Price points, discounts, a collaboration bundle and a VAT-only plan are Stage 3. The VAT-only plan becomes a test only if data shows a stable VAT-only segment.</p></div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Key trade-off</b> a more generous free tier builds trust and returns, at the risk of some users never paying</span><span>12</span></div>
+</section>
+
+<!-- 13 ROADMAP -->
+<section class="slide" id="s13" aria-label="12-month roadmap">
+ <div class="inner">
+  <div class="section">The next 12 months</div>
+  <h2>Prove value first, then let the loop replace ad spend</h2>
+  <div class="road">
+   <div><div class="q">Months 1–3</div><div class="m">Measure and activate</div>
+    <ul><li>Track decisions at user level; set the baseline</li><li>Check that saving a decision predicts conversion</li><li>Run the onboarding A/B test</li></ul></div>
+   <div><div class="q">Months 4–6</div><div class="m">Roll out and retain</div>
+    <ul><li>Roll out the flow if it's a clear win</li><li>Start the accountant-loop holdout</li><li>Start fiscal triggers ahead of the next quarterly tax deadline</li></ul></div>
+   <div><div class="q">Months 7–9</div><div class="m">Monetize what works</div>
+    <ul><li>Launch the paywall change for new cohorts</li><li>Read retention and loop results at 90 days</li><li>Test "example first" vs "form first"</li></ul></div>
+   <div><div class="q">Months 10–12</div><div class="m">Shift the engine</div>
+    <ul><li>Read paywall cohorts over 2–3 billing cycles</li><li>Move budget from ads to the accountant channel and deadline content</li><li>Decide on the accountant plan</li></ul></div>
+  </div>
+  <div class="cols c2" style="margin-top:26px">
+   <div class="panel keyline"><h3>Scale when</h3><p class="small" style="margin:0">A test hits its threshold with guardrails intact, and the lagging read confirms it. Ad budget moves channel by channel, judged by cost per activated account.</p></div>
+   <div class="panel warn"><h3>Stop or rethink when</h3><p class="small" style="margin:0">Activation rises but conversion doesn't follow, accountants invite but their clients never decide, or free users don't return after the trial.</p></div>
+  </div>
+ </div>
+ <div class="foot"><span><b>Sequencing</b> each test answers the question the next one depends on</span><span>13</span></div>
+</section>
+
+<!-- 14 REFLECTION -->
+<section class="slide" id="s14" aria-label="Reflection">
+ <div class="inner">
+  <div class="section">The story</div>
+  <h2>What building this taught me</h2>
+  <div class="cols c3">
+   <div class="panel"><h3>The friction</h3><p class="small" style="margin:0">The metric I needed didn't exist in the data. FinWise only tracked feature activity, which had doubled without moving conversion. I defined a new value metric, a decision answered, built it into the prototype's tracking, and stated openly that it can only be validated once FinWise tracks it at user level.</p></div>
+   <div class="panel keyline"><h3>The Aha</h3><p class="small" style="margin:0">The product doesn't have to wait for the user. Spanish tax deadlines hit every SMB at the same time, so FinWise can trigger value itself: a reason to return, a moment to involve the accountant, and an upgrade moment in one.</p></div>
+   <div class="panel"><h3>What stuck</h3><ul class="dots small" style="margin:0"><li>Experimentation gave structure to how I've worked for years.</li><li>It must start with customer value: a better metric isn't a better product.</li><li>A disproved hypothesis is still progress.</li><li>Discipline (method, thresholds, read date up front) makes results trustworthy.</li><li>Each experiment informs the next.</li></ul></div>
+  </div>
+  <p class="lead" style="margin-top:30px;margin-bottom:8px">Decisions, not features: the same value moment drives activation, retention, monetization and, through the accountant, acquisition.</p>
+  <p class="small"><a href="https://github.com/janadinkova-vamos/finwise-strategy" target="_blank" rel="noopener">Full strategy and module deliverables on GitHub</a> · <a href="https://deal-horizon-predictor.lovable.app" target="_blank" rel="noopener">Working prototype</a></p>
+ </div>
+ <div class="foot"><span><b>Jana Alexandrova</b> Product Experimentation Certification, October 2026</span><span>14</span></div>
+</section>
+
+</main>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var nav=document.querySelector('.nav');
+  slides.forEach(function(s,i){
+    var a=document.createElement('a');a.href='#'+s.id;a.setAttribute('aria-label','Slide '+(i+1)+': '+(s.getAttribute('aria-label')||''));nav.appendChild(a);
+  });
+  var dots=[].slice.call(nav.children);
+  function current(){var y=window.scrollY+window.innerHeight/2,c=0;slides.forEach(function(s,i){if(s.offsetTop<=y)c=i});return c}
+  function mark(){var c=current();dots.forEach(function(d,i){d.classList.toggle('on',i===c)})}
+  window.addEventListener('scroll',mark,{passive:true});mark();
+  document.addEventListener('keydown',function(e){
+    if(['INPUT','TEXTAREA'].indexOf((e.target.tagName||''))>-1)return;
+    var c=current(),n=null;
+    if(e.key==='ArrowDown'||e.key==='PageDown'||e.key==='ArrowRight'||e.key===' ')n=Math.min(c+1,slides.length-1);
+    if(e.key==='ArrowUp'||e.key==='PageUp'||e.key==='ArrowLeft')n=Math.max(c-1,0);
+    if(n!==null){e.preventDefault();slides[n].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+  });
+})();
+</script>
+</body>
+</html>
