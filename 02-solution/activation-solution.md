@@ -16,9 +16,9 @@ _____
 
 ## Onboarding prototype
 
-[Prototype link](https://contract-compass-forecast.lovable.app) (Module 2 version)
+[Prototype link](https://deal-horizon-predictor.lovable.app)
 
-**Final project version:** [FinWise onboarding prototype, extended](https://deal-horizon-predictor.lovable.app)
+_Earlier Module 2 version: [Contract Compass](https://contract-compass-forecast.lovable.app)._
 
 The extended version keeps the Module 2 flow and adds three things, switchable from the header:
 
