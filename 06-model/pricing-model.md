@@ -6,6 +6,37 @@
 
 _____
 
+## Memo to the leadership team
+
+**To:** FinWise leadership team
+**From:** Senior PM, Growth
+**Re:** Pricing recommendation: move the paywall to where users act on a decision
+
+**The problem**
+FinWise has product-market fit and $10M ARR, but only 2% of trial users convert to paid, only 40% of paying customers stay beyond a year, and growth depends on paid acquisition. Over 13 months, import and modeling usage roughly doubled while conversion stayed flat. Users are active, but they don't reach an outcome worth paying for. This is a value problem, not a price problem. Lowering prices or adding discounts would buy more low-fit users who leave, and price changes are hard to reverse.
+
+**Where we are**
+Stage 1 · Value Creation. Our priority is proving that users experience lasting value, not tuning price points. We keep the subscription model and the reverse trial; subscription fits because FinWise delivers value continuously, through monthly cash planning, quarterly tax deadlines and new contracts and hires.
+
+**Recommendation**
+For new signup cohorts, change what users keep when their reverse trial ends:
+- **Free:** saved decision forecasts stay visible (read-only), and the quarterly VAT estimate stays free.
+- **Paid:** creating, updating and comparing decision forecasts, and sharing them with an accountant.
+
+Users keep the value they've already experienced, and they hit the paywall at the moment they need to act on their next decision, often around a tax deadline.
+
+**Why this is the right move now**
+- **It targets the right signal.** It increases the value of the decision-forecast rate within 7 days, the share of trial users who save a forecast tied to a real decision with their own numbers. That forecast is what users keep, and what brings them back to the paywall. Feature activity has already shown it doesn't predict payment.
+- **It builds trust instead of eroding it.** Nothing users have experienced is taken away, which matters in a finance product.
+- **It creates a recurring upgrade moment** at each quarterly tax deadline, without ad spend.
+
+**How we'll know**
+We'll roll this out to new signup cohorts only, so no existing customer sees a different offer, and track them over 2–3 billing cycles. Success means upgrades cluster at the moment users act on or share a decision, cohorts keep paying through the second and third billing cycles, and paid conversion doesn't fall. If conversion drops without a retention gain, the free tier is giving away too much, and we adjust the line before scaling.
+
+_The detailed analysis behind this memo follows below._
+
+_____
+
 ## Stage + model
 
 **Stage:** Stage 1 · Value Creation, moving into Stage 2 · Revenue Expansion.
