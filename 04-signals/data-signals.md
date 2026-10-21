@@ -73,13 +73,87 @@ _____
 
 ## Qualitative layer (triangulation)
 
-The quantitative data shows how much; it can't show why. Current qualitative evidence is one accountant interview (n=1). To find out why users drop off or stay:
+The quantitative data shows how much; it can't show why. Current qualitative evidence is one accountant interview (n=1), plus the competitor review benchmark below. To find out why FinWise's own users drop off or stay:
 
 - **Session replays on the inputs screen (screen 2)**, where drop-off is most likely, to see which fields cause hesitation.
 - **Exit feedback from users who downgrade to free at the end of the reverse trial**, to separate a value problem from a price or paywall problem.
 - **Short interviews with retained and churned customers**, comparing what they did in their first two weeks.
 
 AI synthesis can then combine both, surfacing patterns and new hypotheses faster, but the call on what to test stays mine.
+
+_____
+
+## Competitor review benchmark (market evidence)
+
+_Added for the final project (October 2026). Secondary qualitative research: what SMB customers of similar finance tools say they value and why they leave. The aim is a benchmark of SMB frustrations, not proof about FinWise._
+
+### Method
+
+- **Tools:** four SMB finance tools in three groups:
+  - **Simple accounting and invoicing:** Wave (US/Canada).
+  - **Spanish SMB tools:** Quipu and Holded, matching FinWise's Spain scope.
+  - **Large SMB accounting platform:** Xero, the largest sample, and known for its accountant ecosystem.
+- **Sources:** G2 and Capterra. G2 had too few reviews for the Spanish tools, so Capterra was used for them.
+- **Sample:** the reviews visible on each page, tagged with the same themes for every tool: value and outcomes, cash flow and forecasting, accountant or gestor, tax and VAT, price and plan limits, support, trust incidents, complexity, switching.
+- **Low-rated focus for Xero:** 1–3 star reviews, read as the customers who weren't hooked.
+- Themes are summarised in my own words; counts are approximate and my own tagging.
+
+| Tool | Market | Sample used |
+|---|---|---|
+| Wave | US/Canada | 46 relevant reviews on G2 (4 excluded: a different product with the same name) |
+| Quipu | Spain | 23 reviews on Capterra |
+| Holded | Spain | 30 visible reviews on Capterra (351 in total) |
+| Xero | Global | G2 theme summary across 1,845 reviews, plus ~15 low-rated (1–3 star) reviews |
+
+### What each tool shows
+
+**Wave (simple accounting, US/Canada)**
+- Ease of use and the free core drive most positive reviews.
+- About 9 reviews complain about paid upgrades, often features *moved* from free to paid (bank feeds, recurring invoices, tax forms). Several 1-star reviews come from features taken away.
+- About 7 reviews describe trust failures (payouts held, accounts frozen, a billing bug), including five 0-star reviews.
+- About 5 find reports too basic or cash-flow preparation hard; about 7 value the cash-flow dashboard. No review mentions forecasting.
+- About 6 mention accountants, but none describe collaboration inside the tool.
+
+**Quipu (Spain)**
+- 6 of 23 mention the accountant or gestor connected to the tool as part of the value (advisor access, the gestoría joining).
+- 6 mention tax and VAT: Spanish tax rules are a reason to choose it, and tax season is when users feel friction.
+- 5 value cash flow and liquidity projections, including scenario forecasting.
+- 8 mention price: a recent price increase and plan limits.
+- 3 switched from Holded for ease of use and support.
+
+**Holded (Spain)**
+- 5 of 30 find the all-in-one platform complex or overwhelming at first.
+- 6 complain about support (slow chat, phone support hard to reach).
+- 3 mention features moved to paid plans or expensive add-ons.
+- 2 criticise the cash-flow analysis.
+- 2 describe problems in the owner–gestor workflow, including a mistake that led to VAT being paid on work that never happened.
+
+**Xero (global, G2 theme summary across 1,845 reviews)**
+- Most mentioned pro: ease of use, in about 46% of reviews.
+- Most mentioned cons: missing features (about 17%), limited options (about 9%), limited customisation (about 8%), accounting limitations (about 7%) and poor support (about 7%).
+- In the 1–3 star reviews, users still praise ease of use, cloud access and invoicing, but leave over support failures (including being locked out), broken promises (an introductory discount not honoured), clunky usability, limited reports and disappointment after switching for a lower price.
+
+### Cross-tool insights for FinWise
+
+1. **Ease and price attract users, but they don't keep them.** Even unhappy users praise ease of use. They leave when the product stops delivering the next layer of value: answers from their data, reliability, help. This matches FinWise's own data, where activity rose but conversion didn't, and supports the diagnosis that the problem is lasting value, not access.
+2. **Forward-looking decisions look underserved.** Wave has no forecasting, Holded's cash-flow analysis is criticised, and Quipu's projections are praised where they exist. This supports the decision-forecast Aha as a gap worth testing.
+3. **In Spain, the gestor is part of the product.** Quipu users value giving their advisor access; Holded users describe costly owner–gestor workflow errors. This supports the collaboration loop for the Spanish market.
+4. **Focus beats breadth for small businesses.** Complexity complaints about Holded, and users moving to simpler tools, support a narrow, decision-first product.
+5. **Trust failures and price changes cause the angriest churn in every tool**: frozen payouts, blocked access, features taken away, discounts not honoured. Guardrails for FinWise: never take value back, keep every promise, and treat trust as a retention metric.
+6. **Support is a weak point across all four tools.** If FinWise grows through accountants, accountants need reliable help too, or the hard side leaves.
+7. **Low-price, discount-led acquisition brings in low-fit users who churn.** This supports moving away from paid acquisition and judging channels by cost per activated account.
+
+### What this evidence does and doesn't show
+
+- **It does:** give a consistent, cross-tool picture of why SMB customers stay or leave, which supports the diagnosis and sets guardrails for retention and pricing.
+- **It doesn't prove anything about FinWise.** These are other products' customers, self-selected, partly writing incentivised reviews, often visible only in part, with small samples per tool. Review platforms also skew positive, sometimes because of review campaigns.
+- **It doesn't test the Aha:** no low-rated review mentions forecasting, so whether decision forecasts create value has to be tested by FinWise's own experiment.
+- **It barely tests the accountant loop:** accountants are almost absent from Xero's reviews, and only the Spanish tools hint at it.
+- **It mostly describes churn of paying customers, not trial non-conversion:** users who never convert from a trial rarely write reviews.
+
+Use: directional market evidence that generates hypotheses and guardrails. The experiments are what prove or disprove the strategy.
+
+**Sources:** [Wave reviews on G2](https://www.g2.com/products/wave/reviews) · [Quipu reviews on Capterra](https://www.capterra.com/p/189268/Quipu/reviews/) · [Holded reviews on Capterra](https://capterra.com/p/153384/Holded/reviews/) · [Xero reviews on G2](https://www.g2.com/products/xero/reviews?qs=pros-and-cons)
 
 _____
 
