@@ -27,7 +27,7 @@ This repo is my final project for the **Product Experimentation Certification** 
 
 **Growth thesis:** FinWise's growth leaks because users never experience value tied to a real decision. Onboarding that delivers a decision-linked forecast, shared with the accountant, lifts conversion and retention and turns each accountant into a multiplier who brings in new businesses without ad spend.
 
-- **One friction.** _the hard part; what fought you._
+- **One friction.** The metric I needed didn't exist in the data. FinWise only tracked feature activity, which had doubled without moving conversion, so I had to define a new value metric (a decision answered) and accept that it can only be validated once it's tracked.
 - **One Aha.** _the moment the strategy clicked._
 - **Takeaways.** _what stuck about experimentation as a system._
 
