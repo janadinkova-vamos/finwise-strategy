@@ -85,7 +85,7 @@ Every Spanish SMB faces the same tax obligations at the same time. FinWise uses 
 - **Monthly jobs fill the gaps.** Cash planning and payroll prompts keep value flowing between quarterly deadlines, so users don't join for one VAT payment and leave.
 - **Ask for data when it becomes relevant.** VAT regime and legal form are asked once, at the first fiscal trigger, or inferred from imported data, not added to onboarding.
 - **Estimates, not tax advice.** FinWise prepares the numbers and the accountant confirms them. That makes FinWise the accountant's ally, not their replacement.
-- **VAT-only users.** Users who come only for VAT are offered a limited paid plan with just the VAT calculation, rather than being lost. (Packaging to be decided in Module 6.)
+- **VAT-only users.** The quarterly VAT estimate stays in the free tier after the reverse trial, so users who come for VAT keep returning each quarter, and the decision around the payment is the upgrade moment. A low-price VAT-only paid plan stays a candidate Stage 3 test if the data shows a stable segment of VAT-only users (see [`06-model`](../06-model/pricing-model.md)).
 
 **Acquisition benefit:** deadlines create predictable intent windows for organic content and AEO (e.g. "how much VAT will I owe this quarter?"), and trials that start shortly before a deadline give users a real decision to make inside the trial.
 
