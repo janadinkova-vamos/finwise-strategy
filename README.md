@@ -2,7 +2,7 @@
 
 > FinWise's growth leaks because users never experience value tied to a real decision. Onboarding that delivers a decision-linked forecast, shared with the accountant, lifts conversion and retention and turns each accountant into a multiplier who brings in new businesses without ad spend.
 
-_Your name · Product Experimentation · date_
+Jana Alexandrova · Product Experimentation · 21 October 2026
 
 This repo is my final project for the **Product Experimentation Certification** — a growth strategy for FinWise. One folder per module; this README is **The Story** that ties them together, and the source for the pitch you generate with the **Final Project Deliverables Prompt Generator**.
 
