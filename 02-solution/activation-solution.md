@@ -6,7 +6,7 @@
 
 FinWise’s Aha moment: the moment a small-business owner sees, for a real decision in front of them, whether it pays off and whether they can afford it. For example: “This new contract is profitable, but I’ll be €4,000 short for 60 days before the client pays. Now I know I need a short credit line, or that a 30% upfront payment closes the gap.”
 
-How I’ll measure it: a trial user completes and saves a decision-linked forecast using their own numbers, within the trial. Sample data doesn’t count.
+How I’ll measure it: a trial user completes and saves a decision-linked forecast using their own numbers, within 7 days of starting the trial. Sample data doesn’t count.
 
 How I landed on it with Claude: the Module 1 data showed that data import and modeling usage roughly doubled while trial-to-paid stayed at about 2%. Feature usage isn’t the value moment. Importing data is setup. Combined with an interview with a senior accountant, Claude helped me reframe the value around forward-looking decisions: what to charge, what margin I’ll make, and whether I need financing. That is more valuable than bookkeeping, and it repeats with every new contract, hire or tax payment.
 
