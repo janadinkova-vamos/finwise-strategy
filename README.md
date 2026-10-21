@@ -1,6 +1,6 @@
 # FinWise, A Product-Led Growth Strategy
 
-> _(one-line growth thesis)_
+> FinWise's growth leaks because users never experience value tied to a real decision. Onboarding that delivers a decision-linked forecast, shared with the accountant, lifts conversion and retention and turns each accountant into a multiplier who brings in new businesses without ad spend.
 
 _Your name · Product Experimentation · date_
 
@@ -25,7 +25,7 @@ This repo is my final project for the **Product Experimentation Certification** 
 
 ## The Story
 
-**Growth thesis:** _one line — the through-line from bet to model._
+**Growth thesis:** FinWise's growth leaks because users never experience value tied to a real decision. Onboarding that delivers a decision-linked forecast, shared with the accountant, lifts conversion and retention and turns each accountant into a multiplier who brings in new businesses without ad spend.
 
 - **One friction.** _the hard part; what fought you._
 - **One Aha.** _the moment the strategy clicked._
