@@ -40,3 +40,37 @@ How I’d know it works: the invite rate (the share of activated users who invit
 <img width="1520" height="800" alt="26aca494-e15a-4137-8da5-20c32fce4d3d" src="https://github.com/user-attachments/assets/38444fff-8d13-4b8a-bb33-8258781f8cda" />
 
 _____
+
+## Refined loop: the accountant as multiplier
+
+_Added for the final project (October 2026). The loop above ends when an invited reviewer starts a trial. This refinement shows how the accountant helps FinWise spread across businesses, and what turns one round of expansion into a repeating loop._
+
+**The cycle:**
+
+1. An SMB owner invites their accountant to review a financial decision in FinWise.
+2. The accountant experiences value: clearer financial context and easier collaboration with the owner.
+3. The accountant invites other client businesses, because using FinWise together could make their work easier and involve them earlier in decisions.
+4. Those businesses invite other collaborators, potentially including additional accountants, who introduce FinWise to more businesses.
+
+```mermaid
+flowchart LR
+    A["SMB owner<br/>faces a real decision"] --> B["Invites accountant<br/>to review the forecast"]
+    B --> C["Accountant sees value<br/>clearer context, easier collaboration"]
+    C --> D["Accountant invites<br/>other client businesses"]
+    D --> E["New businesses reach<br/>their first useful decision"]
+    E --> F["They invite collaborators,<br/>incl. other accountants"]
+    F --> A
+```
+
+**One round vs a loop.** One accountant bringing ten clients is one round of expansion. It becomes a repeating loop only when those new users generate further invitations.
+
+**The insight to test: motivation.** The accountant recommends FinWise because it improves their own work and client relationships, not because of a reward. That is a hypothesis worth testing.
+
+**How I'd measure it:**
+
+- **Reach:** the percentage of invited accountants who bring in another business.
+- **Value:** how many of those businesses reach their first useful financial decision.
+
+Invitations alone wouldn't show that the loop delivers value, so they don't count as success on their own.
+
+_____
