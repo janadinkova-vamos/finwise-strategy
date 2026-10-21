@@ -36,6 +36,12 @@ _____
 
 - **Trial-to-paid conversion rate (currently about 2%), confirmed by 90-day paid retention.** If users who import early and answer a real decision convert and stay at higher rates, at scale, the strategy worked. Both are earned through the leading indicators, not moved directly.
 
+_Added for the final project: retention indicators (see [`03-mechanic`](../03-mechanic/engagement-mechanic.md#retention-strategy-final-project))._
+
+- **Leading: monthly decision-active rate.** The share of paying accounts where, in the last 30 days, the owner saved or updated a decision with their own numbers, or a collaborator reviewed one. FinWise's rhythm is monthly, so this replaces DAU/MAU.
+- **Leading: collaborative-account rate.** The share of paying accounts with the owner plus at least one active collaborator (accountant or partner).
+- **Lagging: customer retention, reported by plan.** Monthly plans: the share of each paying cohort still paying and active at months 3, 6 and 12. Annual plans: renewal rate, plus an in-year activity check, because an inactive annual customer is churn that hasn't shown up yet. The two plans are never blended into one number.
+
 <img width="800" height="401" alt="image" src="https://github.com/user-attachments/assets/1714235d-1d3e-4af7-9b95-5216d801093d" />
 
 <img width="795" height="245" alt="image" src="https://github.com/user-attachments/assets/6c2f58d8-5af4-4277-ae23-6f32c611c682" />
