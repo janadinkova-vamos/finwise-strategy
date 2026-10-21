@@ -16,7 +16,17 @@ _____
 
 ## Onboarding prototype
 
-[Prototype link](https://contract-compass-forecast.lovable.app)
+[Prototype link](https://contract-compass-forecast.lovable.app) (Module 2 version)
+
+**Final project version:** [FinWise onboarding prototype, extended](https://deal-horizon-predictor.lovable.app)
+
+The extended version keeps the Module 2 flow and adds three things, switchable from the header:
+
+- **Example first:** an exploring user can see an example forecast before entering any data, then click "Try it with my numbers". Example forecasts can't be saved, so they never count as activation.
+- **Accountant path:** an invited accountant lands directly on the shared forecast with no setup, tries their own upfront-payment scenario next to the owner's, sends a review, and can optionally invite another client. This demonstrates the accountant-as-multiplier loop.
+- **Event tracking by entry point:** every event records whether it came from an owner trial or an accountant invite. Only a forecast saved after editing the owner's own inputs counts as activation.
+
+The core owner flow (screens 1–4) is what the first A/B test compares with current onboarding. "Example first" and the accountant path are tested separately later.
 
 <img width="711" height="434" alt="image" src="https://github.com/user-attachments/assets/7fd897d1-0a8b-4f1e-b274-caae414ce6b5" />
 
