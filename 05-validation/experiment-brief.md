@@ -43,9 +43,15 @@ _____
 
 **Making both groups comparable:** control users have no decision flow, so both groups are measured on one shared event: _saved any forecast or model built on the user's own data within 7 days_. This is a known limitation: the treatment makes that event easier to reach (six numbers instead of importing data), so part of any lift could come from a simpler task rather than more value. That's why the lagging reads (trial-to-paid and 90-day retention) are what confirm real value.
 
-**Success threshold:** +10 percentage points absolute over control, statistically significant (p < 0.05).
+**Three thresholds, kept separate:**
 
-**Minimum detectable effect:** at about 1,000 trials over 8 weeks (about 500 per group), the smallest lift the test can reliably detect is about 7–8 points (80% power, p < 0.05), assuming an expected baseline of 20–30%. A +10 point lift clears that bar and would matter in practice. I'll confirm the real baseline from historical data before launch.
+- **Minimum detectable effect (what the test can detect): about 8 percentage points.** With about 1,000 trials over 8 weeks (about 500 per group), the experiment is designed to detect an uplift of about 8 points at a 25% baseline, with 80% power and p < 0.05 (about 7 points at a 20% baseline, just over 8 at 30%). I'll confirm the real baseline from historical data before launch and check the sample size against it.
+- **Minimum worthwhile uplift (what justifies rollout): +10 percentage points absolute over control, statistically significant (p < 0.05).** At about 500 trials a month, +10 points means about 50 more trial users a month, roughly 600 a year, reaching a real decision answered during the trial. This is a proposed decision threshold, not one already proven to be commercially optimal.
+- **Business validation (what proves it was worth it):** improved trial-to-paid conversion and 90-day paid retention, read later on their own dates.
+
+**How results are reported:** the lift with its 95% confidence interval and p-value, so the read shows both whether the effect is real and how precisely it is known.
+
+**Secondary value check:** after saving a forecast, treatment users get one optional in-product question: _"Did this help you evaluate a real decision?"_ Saving a forecast is behaviour; the Aha is understanding the decision. This helps separate users who click through from users who see real value. It is a secondary signal only, because answers are biased towards users who choose to respond.
 
 **Predicted outcome:** the decision-forecast rate rises from roughly 20–30% to 30–40% within 7 days, and day-1 drop-off stays within 5 points of control.
 
@@ -57,12 +63,16 @@ Set before launch, following the four messy scenarios:
 
 | Result | What it looks like | The call |
 |---|---|---|
-| **Clear win** | Significant, lift ≥ 8 points (the MDE), guardrails within bounds | Ship: roll out to all new trials |
-| **Modest win** | Positive, but below 8 points | Iterate: refine the flow (e.g. fewer inputs) and retest |
+| **Clear win** | Significant, lift ≥ +10 points, guardrails within bounds | Ship: staged rollout to all new trials, then long-term validation |
+| **Modest win** | Positive and significant, but below +10 points | Evaluate the cost of rolling out, iterate on the flow (e.g. fewer inputs) and retest |
+| **Inconclusive** | Positive, but the 95% confidence interval crosses zero | Not proof the idea is wrong: review precision and gather more evidence before deciding |
 | **Mixed signal** | Primary metric up, but day-1 drop-off up more than 5 points | Investigate: find where users leave before deciding |
 | **J-curve** | Weak in the first weeks, then recovers | Wait for the read date; don't stop early |
 | **False peak** | Strong in weeks 1–2, fading by weeks 7–8 | Don't ship on the early lift; treat it as novelty |
-| **No effect or negative** | No significant difference | Treat as unsuccessful (see below) |
+| **No effect** | Lift close to zero, with a narrow confidence interval | Treat as unsuccessful (see below) |
+| **Harmful** | Credible evidence of a negative effect on activation or guardrails | Stop or redesign |
+
+A p-value of 0.05 or above doesn't by itself mean the hypothesis is false; it means this test couldn't show the effect clearly. The confidence interval shows which of the cases above applies.
 
 **If successful:** roll out to all new trials behind the feature flag. Then run the next tests separately: "example first" vs "form first", then the accountant loop holdout. Read trial-to-paid and 90-day retention on their own dates to check that activation turns into revenue.
 
